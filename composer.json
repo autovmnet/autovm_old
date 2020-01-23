@@ -18,7 +18,7 @@
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
-        "bower-asset/font-awesome": "dev-master",
+        "bower-asset/font-awesome": "~4.0",
         "sinergi/browser-detector": "dev-master",
         "kartik-v/yii2-grid": "^3.3@dev"
     },
