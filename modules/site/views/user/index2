@@ -1,0 +1,119 @@
+<?php
+use yii\helpers\Html;
+
+Yii::$app->setting->title .= ' - virtual servers';
+?>
+
+<div class="content">
+    <div class="container vpsServers">
+        <div class="row">
+            <h3 class="title">Virtual Servers <p>List of your active virtual servers</p></h3>
+            <?php echo \app\widgets\Alert::widget();?>
+            <ul class="collapsible popout z-depth-4" data-collapsible="accordion">
+                <?php foreach($virtualServers as $vps) {?>
+                    <li data-id="<?php echo $vps->id;?>">
+                        <div class="collapsible-header">
+                            <div class="row">
+                                <div class="col l1 s2 center-align">
+                                    <?php echo $vps->id;?>
+                                </div>
+                                <div class="col l1 s2 center-align">
+                                    <div class="green circle" style="width: 16px; height: 16px; margin-top: 15px;"></div>
+                                </div>
+                                <div class="col l3 s3 center-align">
+                                    <?php echo Html::encode($vps->ip ? $vps->ip->ip : 'NONE');?>
+                                </div>
+                                <div class="col l3 hide-on-small-and-down center-align">
+
+                                </div>
+                                <div class="col l4 s5 center-align">
+                                    <a href="javascript:void()" data-id="<?php echo $vps->id;?>" class="btn blue white-text vps-start waves-effect waves-light"><i class="material-icons">play_arrow</i></a>
+                                    <a href="#" data-id="<?php echo $vps->id;?>" class="btn blue vps-stop waves-effect waves-light"><i class="material-icons">autorenew</i></a>
+                                    <a href="javascript:void()" data-id="<?php echo $vps->id;?>" class="btn blue vps-stop waves-effect waves-light"><i class="material-icons">stop</i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapsible-body">
+                            <table class="bordered striped highlight centered responsive-table">
+                                <thead>
+                                    <th>Server</th>
+                                    <th>Operation system</th>
+                                    <th>Ram</th>
+                                    <th>Cpu cores</th>
+                                    <th>Cpu mhz</th>
+                                    <th>Hard</th>
+                                    <th>Bandwidth</th>
+                                    <th>Created at</th>
+                                    <th>Control</th>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><?php echo Html::encode(isset($vps->server->name)?$vps->server->name:'');?></td>
+                                    <td><?php echo Html::encode(isset($vps->os->name)?$vps->os->name:'');?></td>
+                                    <td><?php
+                                        if($vps->plan_type==VpsPlansTypeDefault)
+                                            echo $vps->plan->ram;
+                                        else
+                                            echo $vps->vps_ram;
+                                        ?> MB</td>
+                                    <td><?php
+                                        if($vps->plan_type==VpsPlansTypeCustom)
+                                            echo $vps->vps_cpu_core;
+                                        else
+                                            echo $vps->plan->cpu_core;
+                                        ?> Core</td>
+                                    <td><?php
+                                        if($vps->plan_type==VpsPlansTypeCustom)
+                                            echo $vps->vps_cpu_mhz;
+                                        else
+                                            echo $vps->plan->cpu_mhz;
+                                        ?> MHZ</td>
+                                    <td><?php
+                                        if($vps->plan_type==VpsPlansTypeCustom)
+                                            echo $vps->vps_hard;
+                                        else
+                                            echo $vps->plan->hard;
+                                        ?> GB</td>
+                                    <td><?php
+                                        if($vps->plan_type==VpsPlansTypeCustom)
+                                            echo $vps->vps_band_width/1024;
+                                        else
+                                            echo $vps->plan->band_width/1024;
+                                        ?> GB
+                                    <td><?php echo date('d M Y - H:i', $vps->created_at);?></td>
+                                    <td><a href="<?php echo Yii::$app->urlManager->createUrl(['/site/vps/index', 'id' => $vps->id]);?>" class="btn blue vps-stop waves-effect waves-light"><i class="material-icons">search</i></a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </li>
+                <?php }?>
+            </ul>
+            <?php echo \yii\widgets\LinkPager::widget(['pagination' => $pages]);?>
+        </div>
+    </div>
+</div>
+<script>
+    jQuery(document).ready(function(){
+        //jQuery('.collapsible').collapsible();
+        //vpsInfo();
+    });
+    function vpsInfo() {
+        jQuery('.collapsible li').on('click',function (e) {
+            var vpsID = jQuery(this).attr('data-id');
+            console.log(vpsID);
+            jQuery.ajax({
+                url: "<?php echo Yii::$app->urlManager->createUrl(['/site/vps/index']);?>",
+                type: "get",
+                data:{id : vpsID},
+                success: function(response) {
+                    jQuery('li.active .collapsible-body').html(response);
+                    //console.log(response);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert('failed');
+                }
+            });
+        });
+    }
+</script>

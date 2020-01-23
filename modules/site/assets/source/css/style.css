@@ -1,0 +1,385 @@
+@font-face {
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: 500;
+    url('../fonts/quicksand-light-webfont.woff2') format('woff2'),
+    url('../fonts/quicksand-light-webfont.woff') format('woff');
+}
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/MaterialIcons-Regular.eot'); /* For IE6-8 */
+    src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url('../fonts/MaterialIcons-Regular.woff2') format('woff2'),
+    url('../fonts/MaterialIcons-Regular.woff') format('woff'),
+    url('../fonts/MaterialIcons-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Material Icons'), local('MaterialIcons-Regular'), url('../fonts/MaterialIcons-Regular.woff2') format('woff2');
+}
+*{
+    font-family: GillSans, Calibri, Roboto, Trebuchet, sans-serif;
+    margin:0;
+    padding:0;
+}
+
+body{
+    background:#fff;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    outline: none;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+}
+/********{ header }******/
+nav .nav-wrapper{
+    padding: 0px 5%;
+}
+nav .nav-wrapper ul li i{
+    margin-right: 5px;
+    float: left;
+}
+
+/********{ content }******/
+.content{
+    float:left;
+    width:100%;
+    margin-top:3%;
+    min-height: 380px;
+}
+
+.title{
+    font-family: Quicksand, Roboto;
+    margin-bottom:20px;
+}
+.title h3{
+    font-family: Quicksand, Roboto;
+}
+.title, .title p{
+    width:100%;
+    text-shadow:1px 1px 1px #fff;
+}
+
+.title p{
+    margin-top:10px;
+    font:14px calibri,tahoma,geneva,sans-serif;
+}
+
+.sidebar{
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    width:300px;
+    background:#fff;
+    border-right:1px solid #eee;
+    box-shadow:1px 0 10px #E3E3E3;
+    z-index:1000;
+    display:none;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul, .sidebar ul li, .sidebar ul li a{
+    float:left;
+    width:100%;
+}
+
+.sidebar ul li a {
+    padding:10px 15px;
+    font:15px calibri,tahoma,geneva,sans-serif;
+    color:#666;
+    border-bottom:1px solid #eee;
+    text-decoration:none;
+    -webkit-transition:all .3s ease;
+}
+
+.sidebar ul li a i{
+    float:right;
+    color:#eee;
+}
+
+.sidebar ul li a:hover{
+    background:#f9f9f9;
+}
+
+.sidebar ul li a:hover i{
+    color:#ccc;
+}
+
+.sidebar ul li ul{
+    position:absolute;
+    left:100%;
+    width:300px;
+    padding:5px;
+    background:#fff;
+    border:1px solid #eee;
+    box-shadow:0 0 5px #ccc;
+    display:none;
+}
+
+.sidebar ul li ul li{
+    width:auto!important;
+}
+
+.sidebar ul li ul li a{
+    background:0!important;
+    border:0!important;
+    opacity:0.6;
+}
+
+.sidebar ul li ul li a:hover{
+    opacity:1;
+}
+
+.sidebar-toggle{
+    position:fixed;
+    left:0;
+    top:50%;
+    background:#666;
+    padding:5px 10px;
+    border-radius:0 3px 3px 0;
+    z-index:999;
+    cursor:pointer;
+}
+
+.sidebar-toggle i{
+    color:#fff;
+}
+
+/********{ footer }******/
+.footer{
+    float:left;
+    width:100%;
+    margin-top:3%;
+}
+.footer-copyright .container, .footer-copyright .container a{
+    font-family: Quicksand, Roboto;
+}
+footer p{
+    text-align: justify !important;
+}
+/********{ shared }******/
+.table-responsive{
+    float:left;
+    width:100%;
+}
+
+.table{
+    box-shadow:0 0 5px #ccc;
+}
+
+.table th{
+    background:#363636;
+    border-color:#666!important;
+    border-bottom:0!important;
+    color:#808080;
+}
+
+.table td{
+    background:#fff;
+}
+
+.table th,
+.table td{
+    font:14px calibri,tahoma,geneva,sans-serif;
+}
+
+.table a{
+    color:#666;
+    text-decoration:none;
+}
+
+.table .btn{
+    padding:5px 10px;
+}
+
+.pagination{
+    margin-top: 3%;
+}
+
+.pagination li{
+    float:left;
+    margin-right:12px!important;
+}
+
+.pagination li a, .pagination li span{
+    background:#f9f9f9;
+    color:#666;
+    border-radius:3px!important;
+    box-shadow:0 0 5px #eee;
+}
+
+.pagination li a:hover{
+    background:#fff;
+    box-shadow:none;
+}
+
+.pagination li.active a{
+    background:#ffc107 !important;
+    border-color:#ffc107 !important;
+}
+
+.form-group, .form-control{
+    float:left;
+    width:100%;
+}
+
+.input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]){
+    border-bottom: 1px solid #3949ab;
+    box-shadow: 0 1px 0 0 #3949ab;
+}
+input:not([type]):focus:not([readonly])+label,input[type=text]:focus:not([readonly])+label,input[type=password]:focus:not([readonly])+label,input[type=email]:focus:not([readonly])+label,input[type=url]:focus:not([readonly])+label,input[type=time]:focus:not([readonly])+label,input[type=date]:focus:not([readonly])+label,input[type=datetime]:focus:not([readonly])+label,input[type=datetime-local]:focus:not([readonly])+label,input[type=tel]:focus:not([readonly])+label,input[type=number]:focus:not([readonly])+label,input[type=search]:focus:not([readonly])+label,textarea.materialize-textarea:focus:not([readonly])+label{
+    color:#3949ab;
+}
+
+.form-control:focus, .has-error .form-control:focus, .has-success .form-control:focus{
+    border-color:#A6A6A6;
+    box-shadow:none;
+}
+
+div.form-group button{
+    margin-top: 3%;
+}
+
+.help-block-error, .help-block{
+    float:left;
+    width:100%;
+    margin-top:5px;
+    margin-bottom:0;
+    font:13px calibri,tahoma,geneva,sans-serif;
+    color:#CC8500;
+}
+
+.checkbox{
+    cursor:pointer;
+    font:14px calibri,tahoma,geneva,sans-serif;
+}
+
+.checkbox input{
+    display:none;
+}
+
+.checkbox span{
+    position:relative;
+    top:3px;
+    margin-right:5px;
+    display:inline-block;
+    width:18px;
+    height:18px;
+    background:#fff;
+    border:2px solid #ccc;
+    border-radius:2px;
+}
+
+.checkbox:hover span{
+    border-color:#A6A6A6;
+}
+
+.checkbox input:checked + span{
+    background:url(../img/check.png) no-repeat center;
+    border-color:#ffa000;
+}
+
+.btn{
+    float:left;
+    border-radius:4px;
+    border:0;
+    padding:8px 20px;
+    font:15px calibri,tahoma,geneva,sans-serif;
+    -webkit-transition:all .3s ease;
+}
+
+.btn-success{
+    background: #ffa000;
+    color:#fff!important;
+}
+
+.btn-success:hover, .btn-success:focus{
+    background: #ffa000;
+}
+
+.alert{
+    float:left;
+    width:100%;
+    font:14px calibri,tahoma,geneva,sans-serif;
+    padding:5px 10px;
+}
+
+.vpsServers .collapsible .row {
+    margin-bottom: 0px;
+}
+.vpsServers .collapsible .collapsible-header a.btn {
+    margin-right:5px;
+    margin-top: 4px;
+}
+.vpsServers .popout li{
+    border: 1px solid #ccc;
+    border-bottom: none;
+}
+.vpsServers .collapsible.popout>li:last-child{
+    border-bottom: 1px solid #ccc;
+}
+.vpsServers .collapsible-header a i {
+    width: 2rem;
+    font-size: 1.6rem;
+    line-height: inherit;
+    display: block;
+    float: left;
+    text-align: center;
+    margin-right: 0px;
+}
+.vpsServers .collapsible-body tr td a.btn{
+    float: none !important;
+}
+.vpss i{
+    font-size: 2.1rem;
+    color: #ffb300;
+}
+.vpss a{
+    color: #3f51b5 !important;
+}
+.osInstalling p i{
+    margin-right: 10px;
+    float: left;
+    font-size: 24px;
+    visibility: hidden;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+}
+@media only screen and (max-width: 992px){
+    .simple-alert {
+        width: 85%;
+    }
+    table.responsive-table{
+        display: table;
+    }
+}
+.simple-alert-content span i{
+   margin-right: 10px;
+   font-size: 24px;
+   float: left;
+}
