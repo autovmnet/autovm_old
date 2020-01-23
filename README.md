@@ -1,10 +1,7 @@
 # What is [AutoVM](https://autovm.net) ?
 
-AutoVM is an open source platform based on the GPL license to manage virtual machines on VMware ESXi virtualization. It allows VPS providers to manage full automation of support and sales process. AutoVM platform is a good choice for hosting companies or VPS providers to increase their service and support quality.
-
-With AutoVM you can assing unique panel for each user to make them fulfilled all about VPS related.
-
-This must be noticeable as AutoVM additional tools, except Automatic Monitoring you can give your billing managements to AutoVM ! So you can give more fast services to your customers.
+AutoVM is an open-source platform based on the GPL license to manage virtual machines on VMware ESXi virtualization. It allows VPS providers to manage full automation of support and sales process. AutoVM platform is a good choice for hosting companies or VPS providers to increase their service and support quality.
+With AutoVM you can assign a unique panel for each user to make them fulfilled all about VPS related. This must be noticeable as AutoVM additional tools, except Automatic Monitoring you can give your billing managements to AutoVM! So you can give more fast services to your customers.
 
 ### Some of the features
 
@@ -20,6 +17,6 @@ This must be noticeable as AutoVM additional tools, except Automatic Monitoring 
 
 The AutoVM platform is designed to be compatible with default VMware ESXi settings and does not require any changes.
 
-### Do you like to try for free ?
+### Do you like to try for free?
 
-To get and setup the system, Please visit the installation [article](https://wiki.autovm.net/index.php/Installation). If you have any questions, please read the [FAQ](https://wiki.autovm.net/index.php/FAQs) section. If you didnt find your answer, please ask your question in the [stack](http://stack.autovm.net).
+To get and set up the system, please visit the installation [article](https://wiki.autovm.net/index.php/Installation). If you have any questions, please read the [FAQ](https://wiki.autovm.net/index.php/FAQs) section. If you didn't find your answer, please ask your question in the [stack](http://stack.autovm.net).
