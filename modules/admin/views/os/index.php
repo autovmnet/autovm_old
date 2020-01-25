@@ -6,7 +6,7 @@ use yii\grid\GridView;
 <!-- content -->
 <div class="content user">     
     <div class="col-md-12">
-        <div class="title_up"><h3>Operation systems</h3></div>
+        <div class="title_up"><h3>Operating systems</h3></div>
 
         
         <?php echo Html::beginForm(Yii::$app->urlManager->createUrl('/admin/os/delete'));?>

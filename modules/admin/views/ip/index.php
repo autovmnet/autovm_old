@@ -69,7 +69,7 @@ IP list
             ]);
         ?>
         
-        <a href="<?php echo Yii::$app->urlManager->createUrl('/admin/server/index');?>" class="btn btn-primary waves-effect waves-light"><i class="fa fa-plus"></i>Creat</a>
+        <a href="<?php echo Yii::$app->urlManager->createUrl('/admin/server/index');?>" class="btn btn-primary waves-effect waves-light"><i class="fa fa-plus"></i>Create</a>
         <button type="button" class="btn btn-danger btn-delete"><i class="fa fa-remove"></i>Delete</button>
         <br><br><hr>
         
