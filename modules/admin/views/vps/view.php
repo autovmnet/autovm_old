@@ -22,7 +22,7 @@
 <div class="content">
     
 <?php if(!empty($result->log)) {?>
-    <p class="alert alert-danger">Something was wrong. You can find the problem <a href="">here</a> by using the following code <b><?php echo $result->log;?></b>.</p>
+    <p class="alert alert-danger">Something was wrong. You can find the problem <a href="https://wiki.autovm.net/index.php/Logs" target="_blank">here</a> by using the following code <b><?php echo $result->log;?></b>.</p>
 <?php }?>
 
 <?php if($vps->suspends) {?>
