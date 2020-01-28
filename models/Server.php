@@ -18,7 +18,6 @@ use app\extensions\Api;
  * @property integer $port
  * @property string $username
  * @property string $password
- * @property string $license
  * @property string $created_at
  * @property string $updated_at
  *
@@ -51,11 +50,10 @@ class Server extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ip', 'name', 'port', 'username', 'password', 'license', 'dns1', 'dns2', 'console_address'], 'required'],
+            [['ip', 'name', 'port', 'username', 'password', 'dns1', 'dns2', 'console_address'], 'required'],
             [['version'], 'in', 'range' => self::getVersionList()],
             [['parent_id', 'port', 'created_at', 'updated_at', 'version'], 'integer'],
             [['ip'], 'string', 'max' => 45],
-			[['license'], 'string', 'max' => 16],
 			[['password'], 'string'],
             [['name', 'username', 'vcenter_ip', 'vcenter_username', 'vcenter_password', 'network', 'second_network', 'virtualization', 'dns1', 'dns2', 'server_address', 'console_address'], 'string', 'max' => 255]
         ];
@@ -83,7 +81,6 @@ class Server extends \yii\db\ActiveRecord
             'virtualization' => Yii::t('app', 'Virtualization'),
             'dns1' => Yii::t('app', 'DNS'),
             'dns2' => Yii::t('app', 'DNS'),
-			'license' => Yii::t('app', 'License'),
             'server_address' => Yii::t('app', 'Server Address'),
             'console_address' => Yii::t('app', 'Console Address'),
             'created_at' => Yii::t('app', 'Created At'),
@@ -127,7 +124,7 @@ class Server extends \yii\db\ActiveRecord
     public function scenarios()
     {
         return [
-            self::SCENARIO_DEFAULT => ['parent_id', 'name', 'ip', 'port', 'username', 'password', 'vcenter_ip', 'vcenter_username', 'vcenter_password', 'network', 'second_network', 'version', 'virtualization', 'dns1', 'dns2', 'license', 'server_address', 'console_address'],
+            self::SCENARIO_DEFAULT => ['parent_id', 'name', 'ip', 'port', 'username', 'password', 'vcenter_ip', 'vcenter_username', 'vcenter_password', 'network', 'second_network', 'version', 'virtualization', 'dns1', 'dns2', 'server_address', 'console_address'],
         ];
     }
 

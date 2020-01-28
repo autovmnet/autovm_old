@@ -15,7 +15,6 @@
             <?php echo $form->field($model, 'vcenter_ip');?>
             <?php echo $form->field($model, 'vcenter_username');?>
             <?php echo $form->field($model, 'vcenter_password')->passwordInput();?>
-	    <?php echo $form->field($model, 'license');?>
             <?php echo $form->field($model, 'parent_id')->label('Use IP Address from:')->dropDownList(\app\models\Server::getListData(), ['prompt' => 'None']);?>
 	    <?php echo $form->field($model, 'virtualization')->dropDownList(\app\models\Server::getVirtualizationList());?>
 
