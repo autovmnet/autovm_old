@@ -461,7 +461,7 @@ if 'ubuntu 16.04' in os_name:
       
   if extend:
     try:
-      machine.start_process('/bin/sh', args=['-c', 'curl https://file.autovm.net/machine/ubuntu/extend.sh | sh'])
+      machine.start_process('/bin/sh', args=['-c', 'curl http://file.autovm.net/machine/ubuntu/extend.sh | sh'])
     except:
       response(False, log=70)
       
@@ -495,7 +495,7 @@ if 'centos 7' in os_name:
       
   if extend:
     try:
-      machine.start_process('/bin/sh', args=['-c', 'curl https://file.autovm.net/machine/centos/7/extend.sh | sh'])
+      machine.start_process('/bin/sh', args=['-c', 'curl http://file.autovm.net/machine/centos/7/extend.sh | sh'])
     except:
       response(False, log=70)
       
