@@ -28,7 +28,6 @@ use yii\grid\GridView;
                     'name',
                     ['attribute' => 'ip', 'filterInputOptions' => ['class' => 'form-control', 'placeholder' => 'Search']],
                     'port',
-                    'license',
                     [
                         'label' => 'Actions',
                         'format' => 'raw',
