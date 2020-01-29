@@ -32,7 +32,7 @@ class Server extends \yii\db\ActiveRecord
         $this->password = Yii::$app->security->decryptByPassword(base64_decode($this->password), Yii::$app->params['secret']);
         
         if ($this->vcenter_password) {
-            $this->password = Yii::$app->security->decryptByPassword(base64_decode($this->password), Yii::$app->params['secret']);   
+            $this->vcenter_password = Yii::$app->security->decryptByPassword(base64_decode($this->vcenter_password), Yii::$app->params['secret']);   
         }
     }
 
