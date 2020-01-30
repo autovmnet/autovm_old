@@ -50,7 +50,7 @@ class Server extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ip', 'name', 'port', 'username', 'password', 'dns1', 'dns2', 'console_address'], 'required'],
+            [['ip', 'name', 'port', 'username', 'password', 'dns1', 'dns2', 'server_address', 'console_address'], 'required'],
             [['version'], 'in', 'range' => self::getVersionList()],
             [['parent_id', 'port', 'created_at', 'updated_at', 'version'], 'integer'],
             [['ip'], 'string', 'max' => 45],
