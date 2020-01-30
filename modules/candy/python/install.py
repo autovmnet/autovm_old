@@ -270,6 +270,8 @@ for command in commands:
   except:
     response(False, log=30)
     
+  time.sleep(10)
+    
 # Status
 write('status', '3:65')
     
