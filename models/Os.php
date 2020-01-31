@@ -138,7 +138,7 @@ class Os extends \yii\db\ActiveRecord
             'centos7-64' => 'Centos 7 64 bit',
             'centos8-64' => 'Centos 8 64 bit',
             'ubuntu' => 'Ubuntu 32 bit',
-            'ubuntu64' => 'Ubuntu 64 bit',
+            'ubuntu-64' => 'Ubuntu 64 bit',
             'winNetEnterprise' => 'Windows 2003 32 bit',
             'winNetEnterprise-64' => 'Windows 2003 64 bit',
             'longhorn' => 'Windows 2008 32 bit',
