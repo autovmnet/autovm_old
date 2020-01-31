@@ -3,6 +3,7 @@
 namespace app\modules\site\controllers;
 
 use Yii;
+use yii\helpers\Url;
 use yii\web\Response;
 use yii\web\Controller;
 use yii\data\Pagination;
@@ -572,9 +573,9 @@ class VpsController extends Controller
 
         $result = $api->request(Api::ACTION_CONSOLE);
 
-        $server = $vps->server;
+        $address = Url::base(true);
 
-        return ['status' => 1, 'address' => $server->console_address];
+        return ['status' => 1, 'address' => $address];
     }
 
     public function actionStart()

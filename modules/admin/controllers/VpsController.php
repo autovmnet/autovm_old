@@ -816,8 +816,8 @@ class VpsController extends Controller
 
         $result = $api->request(Api::ACTION_CONSOLE);
 
-        $server = $vps->server;
+        $address = Url::base(true);
 
-        return ['ok' => true, 'address' => $server->console_address, 'port' => $port, 'password' => $password];
+        return ['ok' => true, 'address' => $address, 'port' => $port, 'password' => $password];
     }
 }

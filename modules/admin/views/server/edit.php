@@ -23,7 +23,6 @@
             <?php echo $form->field($model, 'dns2');?>
 
             <?php echo $form->field($model, 'server_address');?>
-            <?php echo $form->field($model, 'console_address');?>
 
             <div class="margin-top-10"></div>
             <div class="margin-top-10"></div>
