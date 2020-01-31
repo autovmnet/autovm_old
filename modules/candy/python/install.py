@@ -179,6 +179,8 @@ if machine:
     except:
       response(False, log=52)
       
+    time.sleep(5)
+      
   delete(serve, machine)
     
 # Datastore
@@ -201,6 +203,8 @@ for command in commands:
     ssh.run(command)
   except:
     continue
+    
+  time.sleep(5)
     
 # Create directory
 command = space('mkdir -p', path('/vmfs/volumes', datastore, address))
@@ -286,6 +290,8 @@ try:
   machine.power_on()
 except:
   response(False, log=53)
+  
+time.sleep(5)
   
 # Status
 write('status', '4:75')
