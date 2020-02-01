@@ -621,6 +621,20 @@ if 'windows 2003' in os_name:
     except:
       response(False, log=63)
       
+    time.sleep(10)
+    
+    try:
+      guest_command(serve, machine, 'cmd.exe', '/c echo for /f "skip=3 tokens=3*" %%a in (\'netsh int show int\') do netsh int ip set dns name="%%b" static {} > C:\\autovm.bat'.format(dns1))
+    except:
+      response(False, 62)
+      
+    time.sleep(4)
+      
+    try:
+      guest_command(serve, machine, 'cmd.exe', '/c C:\\autovm.bat')
+    except:
+      response(False, 63)
+      
     time.sleep(4)
       
     if mac_address:
@@ -649,6 +663,20 @@ if 'windows 2008' in os_name or 'windows 7' in os_name:
     except:
       response(False, log=63)
       
+    time.sleep(10)
+    
+    try:
+      guest_command(serve, machine, 'cmd.exe', '/c echo for /f "skip=3 tokens=3*" %%a in (\'netsh int show int\') do netsh int ip set dns name="%%b" static {} > C:\\autovm.bat'.format(dns1))
+    except:
+      response(False, 62)
+      
+    time.sleep(4)
+      
+    try:
+      guest_command(serve, machine, 'cmd.exe', '/c C:\\autovm.bat')
+    except:
+      response(False, 63)
+      
     time.sleep(4)
       
   if extend:
@@ -676,6 +704,20 @@ if 'windows 2012' in os_name or 'windows 2016' in os_name or 'windows 8' in os_n
     except:
       response(False, log=63)
       
+    time.sleep(10)
+    
+    try:
+      guest_command(serve, machine, 'cmd.exe', '/c echo for /f "skip=3 tokens=3*" %%a in (\'netsh int show int\') do netsh int ip set dns name="%%b" static {} > C:\\autovm.bat'.format(dns1))
+    except:
+      response(False, 62)
+      
+    time.sleep(4)
+      
+    try:
+      guest_command(serve, machine, 'cmd.exe', '/c C:\\autovm.bat')
+    except:
+      response(False, 63)
+      
     time.sleep(4)
       
   if extend:
@@ -702,6 +744,20 @@ if 'windows 2019' in os_name:
       guest_command(serve, machine, 'cmd.exe', '/c C:\\autovm.bat')
     except:
       response(False, log=63)
+      
+    time.sleep(10)
+    
+    try:
+      guest_command(serve, machine, 'cmd.exe', '/c echo for /f "skip=3 tokens=3*" %%a in (\'netsh int show int\') do netsh int ip set dns name="%%b" static {} > C:\\autovm.bat'.format(dns1))
+    except:
+      response(False, 62)
+      
+    time.sleep(4)
+      
+    try:
+      guest_command(serve, machine, 'cmd.exe', '/c C:\\autovm.bat')
+    except:
+      response(False, 63)
       
     time.sleep(4)
 
