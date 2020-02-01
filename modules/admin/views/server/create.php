@@ -1,4 +1,4 @@
-<?php use yii\widgets\ActiveForm;?>
+<?php use yii\widgets\ActiveForm;use yii\helpers\Url;?>
 <!-- content -->
 <div class="content">
     <div class="col-md-6">
@@ -21,7 +21,7 @@
             <?php echo $form->field($model, 'dns1')->textInput(['value' => '4.2.2.4']);?>
             <?php echo $form->field($model, 'dns2')->textInput(['value' => '8.8.8.8']);?>
 
-            <?php echo $form->field($model, 'server_address');?>
+            <?php echo $form->field($model, 'server_address')->textInput(['value' => Url::toRoute('/candy/default', true) ]);?>
 
             <div class="margin-top-10"></div>
             <div class="margin-top-10"></div>
