@@ -135,6 +135,8 @@ class Os extends \yii\db\ActiveRecord
             'debian9-64' => 'Debian 9 64 bit',
             'debian10' => 'Debian 10 32 bit',
             'debian10-64' => 'Debian 10 64 bit',
+            'centos' => 'Centos 32 bit',
+            'centos-64' => 'Centos 64 bit',
             'centos7-64' => 'Centos 7 64 bit',
             'centos8-64' => 'Centos 8 64 bit',
             'ubuntu' => 'Ubuntu 32 bit',
@@ -144,11 +146,13 @@ class Os extends \yii\db\ActiveRecord
             'longhorn' => 'Windows 2008 32 bit',
             'longhorn-64' => 'Windows 2008 64 bit',
             'windows8srv-64' => 'Windows 2012 64 bit',
-            'windows9srv-64' => 'Windows 2016 64 bit',
+            'windows8srv-64' => 'Windows 2016 64 bit',
+            'windows9srv-64' => 'Windows 2019 64 bit',
             'windows7' => 'Windows 7 32 bit',
             'windows7-64' => 'Windows 7 64 bit',
             'windows8' => 'Windows 8 32 bit',
             'windows8-64' => 'Windows 8 64 bit',
+            'other' => 'Other',
         ];
     }
 
