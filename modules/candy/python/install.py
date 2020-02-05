@@ -570,7 +570,7 @@ if 'ubuntu 18.04' in os_name or 'ubuntu 19.04' in os_name:
     time.sleep(4)
 
 # Change password
-if 'windows' not in os_name:
+if 'windows' not in os_name and 'mikrotik' not in os_name:
   try:
     machine.start_process('/bin/sh', args=['-c', 'echo "root:{}" | chpasswd'.format(password) ])
   except:
