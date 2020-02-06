@@ -101,6 +101,8 @@ class Os extends \yii\db\ActiveRecord
                 'ubuntu 16.04 64 bit',
                 'ubuntu 18.04 64 bit',
                 'ubuntu 19.04 64 bit',
+                'centos 6.8 32 bit',
+                'centos 6.8 64 bit',
                 'centos 7 64 bit',  
                 'centos 8 64 bit',           
                 'debian 8.5 32 bit',
