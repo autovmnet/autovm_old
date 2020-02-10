@@ -8,7 +8,6 @@ use yii\base\Model;
 class SettingForm extends Model
 {
     public $title;
-    public $api_url;
     public $terminate;
     public $language;
     public $change_limit;
@@ -16,7 +15,7 @@ class SettingForm extends Model
     public function rules()
     {
         return [
-            [['title', 'api_url', 'terminate', 'language', 'change_limit'], 'required'],
+            [['title', 'terminate', 'language', 'change_limit'], 'required'],
         ];
     }
 
@@ -24,7 +23,6 @@ class SettingForm extends Model
     {
         return [
             'title' => Yii::t('app', 'Title'),
-            'api_url' => Yii::t('app', 'Api Url'),
             'terminate' => Yii::t('app', 'Terminate'),
             'language' => Yii::t('app', 'Language'),
             'change_limit' => Yii::t('app', 'Change Limit'),

@@ -23,9 +23,6 @@ use yii\widgets\ActiveForm;
         <?php $form = ActiveForm::begin(['enableClientValidation' => true]);?>
             <?php echo $form->field($model, 'title');?>
             <?php echo $form->field($model, 'language')->dropDownList(Yii::$app->lang->langs);?>
-            <div style="display:none;">
-            <?php echo $form->field($model, 'api_url');?>
-            </div>
             <?php echo $form->field($model, 'terminate')->dropDownList([1 => 'Yes', 2 => 'No']);?>
             <?php echo $form->field($model, 'change_limit');?>
 
