@@ -133,8 +133,9 @@ if 'windows' in os_name:
     scsi = 'lsilogic'
   else:
     scsi = 'lsisas1068'
-    
-data.update({'scsi0.virtualDev': scsi})
+
+if 'mikrotik' not in os_name:
+  data.update({'scsi0.virtualDev': scsi})
   
 # Prepare template
 for arg in data:
