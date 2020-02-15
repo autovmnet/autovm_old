@@ -83,14 +83,12 @@ def path(*args):
 
 def online(address):
   
-  sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+  response = os.system(space('ping', '-c 1', address, '> /dev/null'))
   
-  try:
-    sock.connect((address, 22))
-  except:
-    return False
+  if response == 0:
+    return True
   
-  return True
+  return False
       
 def write(name, content):
   
