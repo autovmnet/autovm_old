@@ -6,6 +6,7 @@ use app\models\Ssh;
 use app\models\VpsIp;
 use app\extensions\Api;
 use Yii;
+use yii\helpers\Url;
 use yii\web\Response;
 use yii\web\Controller;
 use yii\data\Pagination;
