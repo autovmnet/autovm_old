@@ -32,17 +32,14 @@ except:
 # And its name
 name = get_arg('os[operation_system]')
 
-if 'debian' in name:
-  program, command = ['/bin/sh', ['-c', 'cd /tmp && wget -O extend.sh http://file.autovm.net/module/hard/ubuntu-hard-extend.sh && sh extend.sh && rm extend.sh']]
+if 'debian 9.6' in name:
+  program, command = ['/bin/sh', ['-c', 'curl http://file.autovm.net/machine/debian/extend.sh | sh']]
 
-elif 'ubuntu' in name:
-  program, command = ['/bin/sh', ['-c', 'curl http://file.autovm.net/module/hard/ubuntu-hard-extend.sh | sh']]
-  
-elif 'centos 6.8' in name:
-  program, command = ['/bin/sh', ['-c', 'curl http://file.autovm.net/module/hard/centos-hard-extend.sh | sh']]
+elif 'ubuntu 16.04' in name:
+  program, command = ['/bin/sh', ['-c', 'curl http://file.autovm.net/machine/ubuntu/extend.sh | sh']]
   
 elif 'centos 7' in name:
-  program, command = ['/bin/sh', ['-c', 'curl http://file.autovm.net/module/hard/centos7-hard-extend.sh | sh']]
+  program, command = ['/bin/sh', ['-c', 'curl http://file.autovm.net/machine/centos/7/extend.sh | sh']]
 
 elif 'windows' in name and 'windows 2003' not in name:
   program, command = ['cmd.exe', ['/c', 'echo select volume c > diskpart.txt & echo extend >> diskpart.txt & diskpart /s diskpart.txt\r']]
