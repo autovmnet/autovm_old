@@ -475,6 +475,32 @@ if 'ubuntu 16.04' in os_name:
       response(False, log=70)
       
     time.sleep(4)
+    
+# Centos 6.8
+if 'centos 6.8' in os_name:
+  
+  if not dhcp:
+    
+    try:
+      machine.start_process('/bin/sh', args=['-c', "echo 'name=\$(ls /sys/class/net | head -n 1)\necho \"DEVICE=\$name\nTYPE=Ethernet\nONBOOT=yes\nIPADDR=\$1\nGATEWAY=\$2\nNETMASK=\$3\nDNS1=\$4\nDNS2=\$5\" > /etc/sysconfig/network-scripts/ifcfg-\$name\necho \"\$2 dev \$name\ndefault via \$2 dev \$name\" > /etc/sysconfig/network-scripts/route-\$name' > /home/autovm.sh"])
+    except:
+      response(False, log=62)
+      
+    time.sleep(4)
+      
+    try:
+      machine.start_process('/bin/sh', args=['/home/autovm.sh', address, gateway, netmask, dns1, dns2])
+    except:
+      response(False, log=63)
+      
+    time.sleep(4)
+      
+    try:
+      machine.start_process('/bin/sh', args=['-c', 'service network restart']);
+    except:
+      response(False, log=64)
+      
+    time.sleep(4)
 
 # Centos 7
 if 'centos 7' in os_name:
