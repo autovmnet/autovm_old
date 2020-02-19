@@ -1,4 +1,4 @@
-# What is [AutoVM](https://autovm.net) ?
+# What is AutoVM?
 
 AutoVM is an open-source platform based on the GPL license to manage virtual machines on VMware ESXi virtualization. It allows VPS providers to manage full automation of support and sales process. AutoVM platform is a good choice for hosting companies or VPS providers to increase their service and support quality.
 With AutoVM you can assign a unique panel for each user to make them fulfilled all about VPS related. This must be noticeable as AutoVM additional tools, except Automatic Monitoring you can give your billing managements to AutoVM! So you can give more fast services to your customers.
