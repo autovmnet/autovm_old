@@ -802,7 +802,7 @@ class VpsController extends Controller
             return ['ok' => false];
         }
 
-        $port = mt_rand(0, 9999);
+        $port = mt_rand(Yii::$app->setting->from_port, Yii::$app->setting->to_port);
 
         $password = $this->createPassword('abcdefghijklmnopqrstuvwxyz') . $this->createPassword('ABCDEFGHIJKLMNOPQRSTUVWXYZ') . $this->createPassword('0123456789');
 

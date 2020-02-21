@@ -25,6 +25,8 @@ use yii\widgets\ActiveForm;
             <?php echo $form->field($model, 'language')->dropDownList(Yii::$app->lang->langs);?>
             <?php echo $form->field($model, 'terminate')->dropDownList([1 => 'Yes', 2 => 'No']);?>
             <?php echo $form->field($model, 'change_limit');?>
+            <?php echo $form->field($model, 'from_port');?>
+            <?php echo $form->field($model, 'to_port');?>
 
             <div class="margin-top-10"></div>
             <div class="margin-top-10"></div>

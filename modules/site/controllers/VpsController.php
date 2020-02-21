@@ -536,7 +536,7 @@ class VpsController extends Controller
     public function actionConsoleForm()
     {
         $vpsId = Yii::$app->request->post('vpsId');
-        $port = mt_rand(0, 9999);
+        $port = mt_rand(Yii::$app->setting->from_port, Yii::$app->setting->to_port);
 
         return $this->renderAjax('console-form', compact('port', 'vpsId'));
     }
