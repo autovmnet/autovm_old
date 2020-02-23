@@ -176,13 +176,13 @@ class VpsController extends Controller
                 }
             }
  
-            //if ($ip) {
-            //    $server = Server::findOne($ip->server_id);
-            //} else {
-            //    $server = Server::findOne($serverId);
-            //}
+            if ($ip) {
+                $server = Server::findOne($ip->server_id);
+            } else {
+                $server = Server::findOne($serverId);
+            }
 
-            $server = Server::findOne($serverId);
+            #$server = Server::findOne($serverId);
 
             if (!$server) {
                 throw new \Exception('Cannot found server');
