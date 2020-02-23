@@ -142,6 +142,9 @@ for arg in data:
   
   template = append(template, '\n', space(arg, '='), '"', data[arg], '"')
 
+if 'mikrotik' in os_name:
+  template = template.replace('scsi0', 'ide0')
+
 # Status
 write('status', '2:25')
   
