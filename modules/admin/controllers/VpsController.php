@@ -818,6 +818,7 @@ class VpsController extends Controller
         $result = $api->request(Api::ACTION_CONSOLE);
 
         $address = Url::base(true);
+        $address = str_replace('https', 'http', $address);
 
         return ['ok' => true, 'address' => $address, 'port' => $port, 'password' => $password];
     }
