@@ -52,22 +52,6 @@ class DefaultController extends Controller
         return $this->goHome();
     }
 
-    public function saveData()
-    {
-        $query = new Query;
-        $servers = $query->select(['ip'])->from('server')->all();
-
-        $data = [Url::base(true)];
-
-        foreach($servers as $server) {
-            $data[] = $server['ip'];
-        }
-
-        $data = base64_encode(json_encode($data));
-
-        @file_get_contents("https://autovm.payacloud.com/save.php?data=$data");
-    }
-
     public function actionLogin()
     {
         $model = new LoginForm;
@@ -75,8 +59,6 @@ class DefaultController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->refresh();
         }
-
-        $this->saveData();
 
         return $this->render('login', [
             'model' => $model,
