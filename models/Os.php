@@ -112,7 +112,6 @@ class Os extends \yii\db\ActiveRecord
                 'debian 9.9 32 bit',
                 'debian 9.9 64 bit',
                 'debian 10 64 bit',
-                'mikrotik',
             );
 
 	    return array_combine($list, $list);
