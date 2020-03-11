@@ -11,8 +11,8 @@ use yii\widgets\ActiveForm;
         <div class="userstyle" style="height:auto!important;min-height:auto!important">
             <div class="title_up"><h3>Cron jobs</h3></div>
             <p style="line-height:30px;">Please put these commands to your cron jobs</p>
-            <p style="font-size:12px;line-height:30px;">*/5 * * * php <?php echo Yii::getAlias('@app');?>/yii cron/index</p>
-            <p style="font-size:12px;line-height:30px;">0 0 * * php <?php echo Yii::getAlias('@app');?>/yii cron/reset</p>
+            <p style="font-size:12px;line-height:30px;">*/5 * * * * php <?php echo Yii::getAlias('@app');?>/yii cron/index</p>
+            <p style="font-size:12px;line-height:30px;">0 0 * * * php <?php echo Yii::getAlias('@app');?>/yii cron/reset</p>
         </div>
     </div>
     
