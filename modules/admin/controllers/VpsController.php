@@ -589,14 +589,14 @@ class VpsController extends Controller
         
         foreach ($data as $id) {
             
-            $machine = Vps::find()->where(['id' => $id])->one();
+            $machine = Vps::find()->where(['id' => $id])->with('ip')->one();
             
-            if ($machine && $machine->ip) {
+            if ($machine) {
                 
                 $deleted = $machine->delete();
                 
                 if ($deleted) {
-                    Log::log(sprintf('Vps %s was deleted by %s', $machine->ip->ip, Yii::$app->user->identity->fullName));   
+                    Log::log(sprintf('Vps %s was deleted by %s', ($machine->ip ? $machine->ip->ip : $machine->id), Yii::$app->user->identity->fullName));   
                 }
             }
         }
