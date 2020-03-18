@@ -165,6 +165,8 @@ class CronController extends Controller
 
                     if ($plan) {
                         $bandwidth = $plan->band_width;
+                    } else {
+                        $bandwidth = $machine->vps_band_width;
                     }
 
                     if ($machine->vps_band_width) {
