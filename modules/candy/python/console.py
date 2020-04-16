@@ -42,6 +42,9 @@ server_address = get_arg('server[ip]')
 # VMware port
 first = random.randint(9000, 9999)
 
+if 'RemoteDisplay.vnc.port' in items:
+  first = items['RemoteDisplay.vnc.port']
+
 # Port
 port = get_arg('port')
 
