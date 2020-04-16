@@ -1,8 +1,20 @@
 import os
 import time
+import struct
+import base64
+import random
+from d3des import deskey
 from netaddr import IPAddress
 from pysphere.resources import VimService_services as VI
 from server import get_server, get_center, get_ssh, get_arg, response, append, space, path, write, delete
+
+def generate_key(password):
+  c_password = (password + '\x00' * 8)[:8]
+  encrypted = deskey(c_password, False)
+  encrypted_bytes = struct.pack('i' * 32, *encrypted)
+  encrypted_string = base64.b64encode(encrypted_bytes)
+  key = (encrypted_string)
+  return key
 
 # Log
 delete('log')
@@ -137,6 +149,17 @@ if 'windows' in os_name:
 if 'mikrotik' not in os_name:
   data.update({'scsi0.virtualDev': scsi})
   
+# VNC port
+vnc_port = random.randint(9000, 9999)
+
+# VNC password
+vnc_password = ''.join(random.choice(string.ascii_lowercase) for i in range(9))
+
+# VNC key
+vnc_key = generate_key(vnc_password)
+
+data.update({'RemoteDisplay.vnc.enabled': 'TRUE', 'RemoteDisplay.vnc.port': vnc_port, 'RemoteDisplay.vnc.password': vnc_password, 'RemoteDisplay.vnc.key': vnc_key})
+
 # Prepare template
 for arg in data:
   
