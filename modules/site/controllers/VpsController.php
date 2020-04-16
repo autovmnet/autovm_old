@@ -572,11 +572,15 @@ class VpsController extends Controller
         $api->setTimeout(40);
 
         $result = $api->request(Api::ACTION_CONSOLE);
+                
+        if (!$result) {
+            return ['status' => 0];   
+        }
 
         $address = Url::base(true);
         $address = str_replace('https', 'http', $address);
 
-        return ['status' => 1, 'address' => $address];
+        return ['status' => 1, 'address' => $address, 'password' => $result->password];
     }
 
     public function actionStart()

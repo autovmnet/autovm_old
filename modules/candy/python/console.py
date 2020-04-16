@@ -29,15 +29,27 @@ try:
 except:
   response(False)
   
+extraConfig = machine.properties.config.extraConfig
+
+items = {}
+
+for config in extraConfig:
+  items[config.key] = config.value
+  
 # Server address
 server_address = get_arg('server[ip]')
   
 # VMware port
 first = random.randint(9000, 9999)
 
-# Port and Password
+# Port
 port = get_arg('port')
+
+# Password
 password = get_arg('password')
+
+if 'RemoteDisplay.vnc.password' in items:
+  password = items['RemoteDisplay.vnc.password']
 
 # Generate key
 key = generate_key(password)
@@ -50,37 +62,39 @@ settings = {
   'RemoteDisplay.vnc.password': password
 }
 
-if '5.x' in version or '6.0' in version:
-  settings.update({'remotedisplay.vnc.port': str(first)})
+if 'RemoteDisplay.vnc.enabled' not in items:
   
-  try:
-    machine.set_extra_config(settings)
-  except:
-    response(False)
-  
-else:
-  settings.update({'RemoteDisplay.vnc.port': str(first), 'RemoteDisplay.vnc.key': key})
+  if '5.x' in version or '6.0' in version:
+    settings.update({'Remotedisplay.vnc.port': str(first)})
 
-  try:
-    online = machine.is_powered_on()
-  except:
-    response(False)
-    
-  if online:
     try:
-      machine.power_off()
+      machine.set_extra_config(settings)
     except:
       response(False)
-      
-  try:
-    machine.set_extra_config(settings)
-  except:
-    response(False)
-    
-  try:
-    machine.power_on()
-  except:
-    response(False)
+
+  else:
+    settings.update({'RemoteDisplay.vnc.port': str(first), 'RemoteDisplay.vnc.key': key})
+
+    try:
+      online = machine.is_powered_on()
+    except:
+      response(False)
+
+    if online:
+      try:
+        machine.power_off()
+      except:
+        response(False)
+
+    try:
+      machine.set_extra_config(settings)
+    except:
+      response(False)
+
+    try:
+      machine.power_on()
+    except:
+      response(False)
 
 # VNC address
 vnc_address = append(server_address, ':', first)
@@ -90,4 +104,4 @@ try:
 except:
   response(False)
   
-response(True)
+response(True, {'password': password})

@@ -816,10 +816,14 @@ class VpsController extends Controller
         $api->setTimeout(40);
 
         $result = $api->request(Api::ACTION_CONSOLE);
+        
+        if (!$result) {
+            return ['ok' => false];   
+        }
 
         $address = Url::base(true);
         $address = str_replace('https', 'http', $address);
 
-        return ['ok' => true, 'address' => $address, 'port' => $port, 'password' => $password];
+        return ['ok' => true, 'address' => $address, 'port' => $port, 'password' => $result->password];
     }
 }

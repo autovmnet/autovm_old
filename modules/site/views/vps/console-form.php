@@ -32,7 +32,7 @@ $("form").submit(function(e) {
 	new simpleAlert({title:"Console", content:"Please wait a moment, Your VM need to restart and it will take a minute."});
 	$.post(self.attr("action"), self.serialize(), "JSON").done(function(data) {
 
-        content = "<a target='_blank' href='" + data.address + ":$port/vnc_lite.html?password=$pw'>Please click here to open console page</a>";
+        content = "<a target='_blank' href='" + data.address + ":$port/vnc_lite.html?password=" + data.password + "'>Please click here to open console page</a>";
         new simpleAlert({title:"Console", content:content});
 	});
 });
