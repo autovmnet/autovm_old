@@ -186,6 +186,8 @@ if machine:
     time.sleep(5)
       
   delete(serve, machine)
+  
+  time.sleep(10)
     
 # Datastore
 datastore = get_arg('datastore[value]')
