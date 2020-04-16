@@ -3,6 +3,7 @@ import time
 import struct
 import base64
 import random
+import string
 from d3des import deskey
 from netaddr import IPAddress
 from pysphere.resources import VimService_services as VI
@@ -153,7 +154,10 @@ if 'mikrotik' not in os_name:
 vnc_port = random.randint(9000, 9999)
 
 # VNC password
-vnc_password = ''.join(random.choice(string.ascii_lowercase) for i in range(9))
+vnc_password = ''
+
+for i in range(9):
+  vnc_password = vnc_password.join(random.choice(string.ascii_lowercase))
 
 # VNC key
 vnc_key = generate_key(vnc_password)
