@@ -157,7 +157,7 @@ vnc_port = random.randint(9000, 9999)
 vnc_password = ''
 
 for i in range(9):
-  vnc_password = vnc_password.join(random.choice(string.ascii_lowercase))
+  vnc_password = vnc_password + random.choice(string.ascii_lowercase + string.ascii_lowercase)
 
 # VNC key
 vnc_key = generate_key(vnc_password)
