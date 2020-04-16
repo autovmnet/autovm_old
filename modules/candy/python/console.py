@@ -54,6 +54,9 @@ if 'RemoteDisplay.vnc.password' in items:
 # Generate key
 key = generate_key(password)
 
+if 'RemoteDisplay.vnc.key' in items:
+  key = items['RemoteDisplay.vnc.key']
+
 # VMware version
 version = get_arg('server[virtualization]')
 
