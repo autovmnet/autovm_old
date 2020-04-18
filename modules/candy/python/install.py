@@ -826,6 +826,15 @@ if 'windows' in os_name:
     guest_command(serve, machine, 'cmd.exe', '/c net user administrator {}\r'.format(password))
   except:
     response(False, log=65)
+
+# Centos
+if 'centos' in os_name:
+  try:
+    machine.reset()
+  except:
+    response(False, log=54)
+    
+  time.sleep(10)
     
 # Status
 write('status', '4:100')

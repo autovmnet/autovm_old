@@ -11,6 +11,7 @@
 51 => Could not get machine status.
 52 => Could not stop machine.
 53 => Could not start machine.
+54 => Could not reset machine
 55 => Could not delete machine.
 
 60 => Could not load the VMware tools.
