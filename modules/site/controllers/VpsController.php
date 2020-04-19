@@ -116,7 +116,7 @@ class VpsController extends Controller
         $id = Yii::$app->request->post('vpsId');
 
 
-        $operationSystems = Os::find()->active()->all();
+        $operationSystems = Os::find()->active()->orderBy('name', 'ASC')->all();
 
         return $this->renderAjax('select-os', [
             'operationSystems' => $operationSystems,
