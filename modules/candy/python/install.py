@@ -830,7 +830,7 @@ if 'windows' in os_name:
 # Centos
 if 'centos' in os_name:
   try:
-    machine.reset()
+    machine.reboot_guest()
   except:
     response(False, log=54)
     
