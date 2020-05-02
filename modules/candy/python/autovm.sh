@@ -18,6 +18,8 @@ fi
 
 
 
+if [ "\$8" = no ]; then
+
 # Ubuntu
 if [ "\$OS_ACTUAL" = Ubuntu ] ; then
 
@@ -119,6 +121,7 @@ EOL
                     
     fi
 
+fi
 fi
 
 

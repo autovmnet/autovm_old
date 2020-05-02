@@ -382,23 +382,26 @@ if not dns2:
 with open(path(base, 'autovm.sh')) as file:
   data = file.read()
   
-if 'windows' not in os_name:
+dhcp_st = 'no'
+
+if dhcp:
+  dhcp_st = 'yes'
   
-  if not dhcp:
+if 'windows' not in os_name:
     
-    try:
-      machine.start_process('/bin/bash', args=['-c', "echo '{}' > /home/autovm.sh".format(data)])
-    except:
-      response(False, log=62)
-     
-    time.sleep(5)
-      
-    try:
-      machine.start_process('/bin/bash', ['/home/autovm.sh', address, gateway, netmask, dns1, dns2, password, 'yes'])
-    except:
-      response(False, log=63)
-      
-    time.sleep(5)
+  try:
+    machine.start_process('/bin/bash', args=['-c', "echo '{}' > /home/autovm.sh".format(data)])
+  except:
+    response(False, log=62)
+
+  time.sleep(5)
+
+  try:
+    machine.start_process('/bin/bash', ['/home/autovm.sh', address, gateway, netmask, dns1, dns2, password, 'yes', dhcp_st])
+  except:
+    response(False, log=63)
+
+  time.sleep(5)
 
 # Execute command
 def guest_command(serve, machine, program, command):
