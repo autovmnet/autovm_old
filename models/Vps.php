@@ -73,8 +73,6 @@ class Vps extends \yii\db\ActiveRecord
             [['hostname', 'password', 'disk'], 'string'],
             [['extra_bw'], 'integer'],
             [['extra_bw'], 'default', 'value' => '0'],
-            //[['password'], 'match', 'pattern' => '/(?=.*[A-Z]+)(?=.*[a-z]+)(?=.*[0-9]+)/'],
-            ['vps_hard', 'compare', 'compareValue' => 21, 'operator' => '>='],
             [['view'], 'safe'],
         ];
     }

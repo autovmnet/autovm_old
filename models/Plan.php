@@ -42,8 +42,7 @@ class Plan extends \yii\db\ActiveRecord
         return [
             [['name', 'ram', 'cpu_mhz', 'cpu_core', 'hard'], 'required'],
             [['ram', 'cpu_mhz', 'cpu_core', 'hard', 'is_public', 'created_at', 'updated_at','band_width'], 'integer'],
-            [['name'], 'string', 'max' => 255],
-            ['hard', 'compare', 'compareValue' => 21, 'operator' => '>=']
+            [['name'], 'string', 'max' => 255]
         ];
     }
 
