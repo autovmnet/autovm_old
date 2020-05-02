@@ -4,13 +4,13 @@
 
        <div class="row row-margin"> <!-- row1  -->
 
-<!--<div class="col-md-12">
-<div class="alert alert-success">You can ask your desired questions in our <a href="http://stack.autovm.net">stack</a></div>
-</div>-->
-
 <div class="col-md-12">
-<div class="alert alert-danger">We will remove the old operating systems such as CentOS 6 in the next update.</div>
+<div class="alert alert-success">You can ask your desired questions in our <a href="http://stack.autovm.net">stack</a></div>
 </div>
+
+<!--<div class="col-md-12">
+<div class="alert alert-danger">We will remove the old operating systems such as CentOS 6 in the next update.</div>
+</div>-->
            
 <style>
 .tweet{float:left;width:100%;padding:15px 30px;background:#fff;border:1px solid #ddd;border-radius:4px;box-shadow:0 5px 5px #ddd;margin-bottom:40px;}

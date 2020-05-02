@@ -378,262 +378,27 @@ dns2 = get_arg('server[dns2]')
 if not dns2:
   dns2 = '8.8.8.8'
   
-# Debian 8.5
-if 'debian 8.5' in os_name:
+# Network configuration
+with open(path(base, 'autovm.sh')) as file:
+  data = file.read()
   
-  if not dhcp:
-    if mac_address:
-      try:
-        machine.start_process('/bin/sh', args=['-c', "echo 'name=\$(ls /sys/class/net | head -n 1)\necho \"auto lo\niface lo inet loopback\nauto \$name\niface \$name inet static\naddress \$1\npost-up route add \$2 dev \$name\npost-up route add default gw \$2\npre-down route del \$2 dev \$name\npre-down route del default gw \$2\nnetmask \$3\ndns-nameservers \$4\ndns-nameservers \$5\ndns-search google.com\" > /etc/network/interfaces' > /home/autovm.sh"])
-      except:
-        response(False, log=62)
-    else:
-      try:
-        machine.start_process('/bin/sh', args=['-c', "echo 'name=\$(ls /sys/class/net | head -n 1)\necho \"auto lo\niface lo inet loopback\nauto \$name\niface \$name inet static\naddress \$1\ngateway \$2\nnetmask \$3\ndns-nameservers \$4\ndns-nameservers \$5\ndns-search google.com\" > /etc/network/interfaces' > /home/autovm.sh"])
-      except:
-        response(False, log=62)
-        
-    time.sleep(4)
-        
-    try:
-      machine.start_process('/bin/sh', args=['/home/autovm.sh', address, gateway, netmask, dns1, dns2])
-    except:
-      response(False, log=63)
-      
-    time.sleep(4)
-      
-    try:
-      machine.start_process('/bin/sh', args=['-c', '/etc/init.d/networking restart'])
-    except:
-      response(False, log=64)
-      
-    time.sleep(4)
-
-# Debian 9.6
-if 'debian 9.6' in os_name:
+if 'windows' not in os_name:
   
   if not dhcp:
     
     try:
-      machine.start_process('/bin/sh', args=['-c', "echo 'name=\$(ls /sys/class/net | head -n 1)\necho \"auto lo\niface lo inet loopback\nauto \$name\niface \$name inet static\naddress \$1\ngateway \$2\nnetmask \$3\ndns-nameservers \$4\ndns-nameservers \$5\ndns-search google.com\" > /etc/network/interfaces' > /home/autovm.sh"])
+      machine.start_process('/bin/bash', args=['-c', "echo '{}' > /home/autovm.sh".format(data)])
     except:
       response(False, log=62)
-      
-    time.sleep(4)
+     
+    time.sleep(5)
       
     try:
-      machine.start_process('/bin/sh', args=['/home/autovm.sh', address, gateway, netmask, dns1, dns2])
+      machine.start_process('/bin/bash', ['/home/autovm.sh', address, gateway, netmask, dns1, dns2, password, 'yes'])
     except:
       response(False, log=63)
       
-    time.sleep(4)
-      
-    try:
-      machine.start_process('/bin/sh', args=['-c', '/etc/init.d/networking restart'])
-    except:
-      response(False, log=64)
-      
-    time.sleep(4)
-      
-  if extend:
-    try:
-      machine.start_process('/bin/sh', args=['-c', 'curl http://file.autovm.net/machine/debian/extend.sh | sh'])
-    except:
-      response(False, log=70)
-      
-    time.sleep(4)
-      
-# Debian 9.9 and 10
-if 'debian 9.9' in os_name or 'debian 10' in os_name:
-  
-  if not dhcp:
-    
-    try:
-      machine.start_process('/bin/sh', args=['-c', "echo 'name=\$(ls /sys/class/net | head -n 1)\necho \"auto lo\niface lo inet loopback\nauto \$name\niface \$name inet static\naddress \$1\ngateway \$2\nnetmask \$3\ndns-nameservers \$4\ndns-nameservers \$5\ndns-search google.com\" > /etc/network/interfaces' > /home/autovm.sh"])
-    except:
-      response(False, log=62)
-      
-    time.sleep(4)
-      
-    try:
-      machine.start_process('/bin/sh', args=['/home/autovm.sh', address, gateway, netmask, dns1, dns2])
-    except:
-      response(False, log=63)
-      
-    time.sleep(4)
-      
-    try:
-      machine.start_process('/bin/sh', args=['-c', '/etc/init.d/networking restart'])
-    except:
-      response(False, log=64)
-      
-    time.sleep(4)
-
-# Ubuntu 16
-if 'ubuntu 16.04' in os_name:
-  
-  if not dhcp:
-    if mac_address:
-      try:
-        machine.start_process('/bin/sh', args=['-c', "echo 'name=\$(ls /sys/class/net | head -n 1)\necho \"auto lo\niface lo inet loopback\nauto \$name\niface \$name inet static\naddress \$1\npost-up route add \$2 dev \$name\npost-up route add default gw \$2\npre-down route del \$2 dev \$name\npre-down route del default gw \$2\nnetmask \$3\ndns-nameservers \$4\ndns-nameservers \$5\ndns-search google.com\" > /etc/network/interfaces' > /home/autovm.sh"])
-      except:
-        response(False, log=62)
-    else:
-      try:
-        machine.start_process('/bin/sh', args=['-c', "echo 'name=\$(ls /sys/class/net | head -n 1)\necho \"auto lo\niface lo inet loopback\nauto \$name\niface \$name inet static\naddress \$1\ngateway \$2\nnetmask \$3\ndns-nameservers \$4\ndns-nameservers \$5\ndns-search google.com\" > /etc/network/interfaces' > /home/autovm.sh"])
-      except:
-        response(False, log=62)
-        
-    time.sleep(4)
-        
-    try:
-      machine.start_process('/bin/sh', args=['/home/autovm.sh', address, gateway, netmask, dns1, dns2])
-    except:
-      response(False, log=63)
-      
-    time.sleep(4)
-      
-    try:
-      machine.start_process('/bin/sh', args=['-c', '/etc/init.d/networking restart'])
-    except:
-      response(False, log=64)
-      
-    time.sleep(4)
-      
-  if extend:
-    try:
-      machine.start_process('/bin/sh', args=['-c', 'curl http://file.autovm.net/machine/ubuntu/extend.sh | sh'])
-    except:
-      response(False, log=70)
-      
-    time.sleep(4)
-    
-# Centos 6.8
-if 'centos 6.8' in os_name:
-  
-  if not dhcp:
-    
-    try:
-      machine.start_process('/bin/sh', args=['-c', "echo 'name=\$(ls /sys/class/net | head -n 1)\necho \"DEVICE=\$name\nTYPE=Ethernet\nONBOOT=yes\nIPADDR=\$1\nGATEWAY=\$2\nNETMASK=\$3\nDNS1=\$4\nDNS2=\$5\" > /etc/sysconfig/network-scripts/ifcfg-\$name\necho \"\$2 dev \$name\ndefault via \$2 dev \$name\" > /etc/sysconfig/network-scripts/route-\$name' > /home/autovm.sh"])
-    except:
-      response(False, log=62)
-      
-    time.sleep(4)
-      
-    try:
-      machine.start_process('/bin/sh', args=['/home/autovm.sh', address, gateway, netmask, dns1, dns2])
-    except:
-      response(False, log=63)
-      
-    time.sleep(4)
-      
-    try:
-      machine.start_process('/bin/sh', args=['-c', 'service network restart']);
-    except:
-      response(False, log=64)
-      
-    time.sleep(4)
-
-# Centos 7
-if 'centos 7' in os_name:
-  
-  if not dhcp:
-    
-    try:
-      machine.start_process('/bin/sh', args=['-c', "echo 'name=\$(ls /sys/class/net | head -n 1)\necho \"DEVICE=\$name\nTYPE=Ethernet\nONBOOT=yes\nIPADDR=\$1\nGATEWAY=\$2\nNETMASK=\$3\nDNS1=\$4\nDNS2=\$5\" > /etc/sysconfig/network-scripts/ifcfg-\$name\necho \"\$2 dev \$name\ndefault via \$2 dev \$name\" > /etc/sysconfig/network-scripts/route-\$name' > /home/autovm.sh"])
-    except:
-      response(False, log=62)
-      
-    time.sleep(4)
-      
-    try:
-      machine.start_process('/bin/sh', args=['/home/autovm.sh', address, gateway, netmask, dns1, dns2])
-    except:
-      response(False, log=63)
-      
-    time.sleep(4)
-      
-    try:
-      machine.start_process('/bin/sh', args=['-c', 'service network restart']);
-    except:
-      response(False, log=64)
-      
-    time.sleep(4)
-      
-  if extend:
-    try:
-      machine.start_process('/bin/sh', args=['-c', 'curl http://file.autovm.net/machine/centos/7/extend.sh | sh'])
-    except:
-      response(False, log=70)
-      
-    time.sleep(4)
-
-# Centos 8
-if 'centos 8' in os_name:
-  
-  if not dhcp:
-    
-    try:
-      machine.start_process('/bin/sh', args=['-c', "echo 'name=\$(ls /sys/class/net | head -n 1)\necho \"DEVICE=\$name\nTYPE=Ethernet\nONBOOT=yes\nIPADDR=\$1\nGATEWAY=\$2\nNETMASK=\$3\nDNS1=\$4\nDNS2=\$5\" > /etc/sysconfig/network-scripts/ifcfg-\$name\necho \"\$2 dev \$name\ndefault via \$2 dev \$name\" > /etc/sysconfig/network-scripts/route-\$name' > /home/autovm.sh"])
-    except:
-      response(False, log=62)
-      
-    time.sleep(4)
-      
-    try:
-      machine.start_process('/bin/sh', args=['/home/autovm.sh', address, gateway, netmask, dns1, dns2])
-    except:
-      response(False, log=63)
-      
-    time.sleep(4)
-      
-    try:
-      machine.start_process('/bin/sh', args=['-c', 'systemctl restart NetworkManager'])
-    except:
-      response(False, log=64)
-      
-    time.sleep(4)
-      
-# Subnet
-subnet = IPAddress(netmask).netmask_bits()
-
-# Ubuntu 18 and 19
-if 'ubuntu 18.04' in os_name or 'ubuntu 19.04' in os_name:
-  
-  if not dhcp:
-    if mac_address:
-      try:
-        machine.start_process('/bin/sh', args=['-c', "echo 'name=\$(ls /sys/class/net | head -n 1)\necho \"network:\n  version: 2\n  renderer: networkd\n  ethernets:\n    \$name:\n      dhcp4: no\n      addresses: [\$1/\$3]\n      gateway4: \$2\n      nameservers:\n        addresses: [\$4,\$5]\n      routes:\n      - to: \$2/\$3\n        via: 0.0.0.0\n        scope: link\" > /etc/netplan/01-netcfg.yaml' > /home/autovm.sh"])
-      except:
-        response(False, log=62)
-    else:
-      try:
-        machine.start_process('/bin/sh', args=['-c', "echo 'name=\$(ls /sys/class/net | head -n 1)\necho \"network:\n  version: 2\n  renderer: networkd\n  ethernets:\n    \$name:\n      dhcp4: no\n      addresses: [\$1/\$3]\n      gateway4: \$2\n      nameservers:\n        addresses: [\$4,\$5]\" > /etc/netplan/01-netcfg.yaml' > /home/autovm.sh"])
-      except:
-        response(False, log=62)
-        
-    time.sleep(4)
-        
-    try:
-      machine.start_process('/bin/sh', args=['/home/autovm.sh', address, gateway, str(subnet), dns1, dns2])
-    except:
-      response(False, log=63)
-      
-    time.sleep(4)
-      
-    try:
-      machine.start_process('/bin/sh', args=['-c', 'netplan apply'])
-    except:
-      response(False, log=64)
-      
-    time.sleep(4)
-
-# Change password
-if 'windows' not in os_name and 'mikrotik' not in os_name:
-  try:
-    machine.start_process('/bin/sh', args=['-c', 'echo "root:{}" | chpasswd'.format(password) ])
-  except:
-    response(False, log=65)
+    time.sleep(5)
 
 # Execute command
 def guest_command(serve, machine, program, command):
@@ -829,6 +594,8 @@ if 'windows' in os_name:
 
 # Centos
 if 'centos' in os_name:
+  time.sleep(10)
+  
   try:
     machine.reboot_guest()
   except:
