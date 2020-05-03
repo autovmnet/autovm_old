@@ -161,9 +161,9 @@ EOL
         fi
         
         if  [ "\$VER" = "16.04" -o "\$OS_ACTUAL" = Debian ]; then
-            parted /dev/sda --script mkpart primary \$(parted /dev/sda print | grep -E "lvm" | xargs -n1 | sed -n 4p) 100%
+            parted /dev/sda --script mkpart primary \$(parted /dev/sda print | grep -E "lvm" | xargs -n1 | sed -n 3p) 100%
         else
-            parted /dev/sda --script mkpart primary \$(parted /dev/sda print | grep -E "lvm|extended" | xargs -n1 | sed -n 4p) 100%
+            parted /dev/sda --script mkpart primary \$(parted /dev/sda print | grep -E "lvm|extended" | xargs -n1 | sed -n 3p) 100%
         fi
         
         pvscan --cache
