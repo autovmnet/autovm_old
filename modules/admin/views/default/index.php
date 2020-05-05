@@ -9,7 +9,7 @@
 </div>-->
 
 <div class="col-md-12">
-<div class="alert alert-danger">Important notice: We will not support ESXi 6.0 or earlier versions in the new AutoVM platform. In addition, old templates will be removed such as Debian 8, Centos 6 and windows 2008.</div>
+<div class="alert alert-danger">Important notice: We will not support ESXi 6.0 or older versions in the new AutoVM platform. In addition, old templates will be removed such as Debian 8, Centos 6 and windows 2008.</div>
 </div>
            
 <style>
