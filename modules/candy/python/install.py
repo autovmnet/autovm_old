@@ -162,7 +162,7 @@ for i in range(9):
 # VNC key
 vnc_key = generate_key(vnc_password)
 
-data.update({'RemoteDisplay.vnc.enabled': 'TRUE', 'RemoteDisplay.vnc.port': vnc_port, 'RemoteDisplay.vnc.password': vnc_password, 'RemoteDisplay.vnc.key': vnc_key})
+#data.update({'RemoteDisplay.vnc.enabled': 'TRUE', 'RemoteDisplay.vnc.port': vnc_port, 'RemoteDisplay.vnc.password': vnc_password, 'RemoteDisplay.vnc.key': vnc_key})
 
 # Prepare template
 for arg in data:
