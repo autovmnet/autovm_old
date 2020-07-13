@@ -18,7 +18,9 @@ if ssh:
   data.update({'ssh': True})
   
 if serve:
-  
+
+  result = None
+
   try:
     result = serve.get_datastores().items()
   except:
