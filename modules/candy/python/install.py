@@ -441,7 +441,7 @@ if 'windows 2003' in os_name:
     except:
       response(False, log=62)
       
-    time.sleep(4)
+    time.sleep(10)
       
     try:
       guest_command(serve, machine, 'cmd.exe', '/c C:\\autovm.bat')
@@ -455,14 +455,14 @@ if 'windows 2003' in os_name:
     except:
       response(False, 62)
       
-    time.sleep(4)
+    time.sleep(10)
       
     try:
       guest_command(serve, machine, 'cmd.exe', '/c C:\\autovm.bat')
     except:
       response(False, 63)
       
-    time.sleep(4)
+    time.sleep(10)
       
     if mac_address:
       
@@ -483,7 +483,7 @@ if 'windows 2008' in os_name or 'windows 7' in os_name:
     except:
       response(False, log=62)
       
-    time.sleep(4)
+    time.sleep(10)
       
     try:
       guest_command(serve, machine, 'cmd.exe', '/c C:\\autovm.bat')
@@ -497,7 +497,7 @@ if 'windows 2008' in os_name or 'windows 7' in os_name:
     except:
       response(False, 62)
       
-    time.sleep(4)
+    time.sleep(10)
       
     try:
       guest_command(serve, machine, 'cmd.exe', '/c C:\\autovm.bat')
@@ -524,7 +524,7 @@ if 'windows 2012' in os_name or 'windows 2016' in os_name or 'windows 8' in os_n
     except:
       response(False, log=62)
       
-    time.sleep(4)
+    time.sleep(10)
       
     try:
        guest_command(serve, machine, 'cmd.exe', '/c C:\\autovm.bat')
@@ -538,7 +538,7 @@ if 'windows 2012' in os_name or 'windows 2016' in os_name or 'windows 8' in os_n
     except:
       response(False, 62)
       
-    time.sleep(4)
+    time.sleep(10)
       
     try:
       guest_command(serve, machine, 'cmd.exe', '/c C:\\autovm.bat')
@@ -565,7 +565,7 @@ if 'windows 2019' in os_name:
     except:
       response(False, log=62)
       
-    time.sleep(4)
+    time.sleep(10)
       
     try:
       guest_command(serve, machine, 'cmd.exe', '/c C:\\autovm.bat')
@@ -579,7 +579,7 @@ if 'windows 2019' in os_name:
     except:
       response(False, 62)
       
-    time.sleep(4)
+    time.sleep(10)
       
     try:
       guest_command(serve, machine, 'cmd.exe', '/c C:\\autovm.bat')
