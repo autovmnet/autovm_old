@@ -1,3 +1,7 @@
+# # we have stopped supporting and developing free version of the platform. However, you can try our premium version, which has considerable development.
+
+Use the old version at your own risk.
+
 # What is AutoVM?
 
 AutoVM is an open-source platform based on the GPL license to manage virtual machines on VMware ESXi virtualization. It allows VPS providers to manage full automation of support and sales process. AutoVM platform is a good choice for hosting companies or VPS providers to increase their service and support quality.
@@ -19,4 +23,4 @@ The AutoVM platform is designed to be compatible with default VMware ESXi settin
 
 ### Do you like to try for free?
 
-To get and set up the system, please visit the installation [article](https://wiki.autovm.net/index.php/Installation). If you have any questions, please read the [FAQ](https://wiki.autovm.net/index.php/FAQs) section. If you didn't find your answer, please ask your question in the [stack](http://stack.autovm.net).
+To get and set up the system, please visit the installation article.also you can ask your question in the [stack](http://stack.autovm.net).
