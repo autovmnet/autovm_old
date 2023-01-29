@@ -11,13 +11,14 @@ function post($name, $default = null) {
 }
 
 # Database details
+$host = post('host');
 $database = post('database');
 $username = post('username');
 $password = post('password');
 
 # Database connection
 try {
-    $pdo = new PDO("mysql:host=localhost;dbname=$database", $username, $password);
+    $pdo = new PDO("mysql:host=$host;dbname=$database", $username, $password);
 } catch (Exception $e) {
     die('Could not connect to database');   
 }
